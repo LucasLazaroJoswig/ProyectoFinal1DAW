@@ -1,5 +1,7 @@
 package modelo.dao;
 
-public interface ClienteDao {
+import modelo.entidades.Cliente;
+
+public interface ClienteDao extends IntGenericoCrud<String, Cliente>{
 
 }
