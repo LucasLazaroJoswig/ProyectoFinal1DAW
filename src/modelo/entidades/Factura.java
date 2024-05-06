@@ -3,6 +3,7 @@ package modelo.entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -65,4 +66,28 @@ public class Factura implements Serializable {
 		this.proyecto = proyecto;
 	}
 
+	@Override
+	public String toString() {
+		return "Factura [idFactura=" + idFactura + ", descripcion=" + descripcion + ", fechaFactura=" + fechaFactura
+				+ ", proyecto=" + proyecto + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idFactura);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Factura other = (Factura) obj;
+		return Objects.equals(idFactura, other.idFactura);
+	}
+
+	
 }
