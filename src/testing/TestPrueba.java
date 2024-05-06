@@ -6,6 +6,7 @@ import java.util.List;
 
 import modelo.dao.*;
 import modelo.entidades.Cliente;
+import modelo.entidades.Empleado;
 
 
 
@@ -13,15 +14,19 @@ import modelo.entidades.Cliente;
 
 public class TestPrueba {
 private static ClienteDao cdao;
+private static EmpleadoDao edao;
 	
 	static {
 		cdao=new ClienteDaoImplMy8Jpa();
+		edao=new EmpleadoDaoImplMy8Jpa();
 	}
 	
 	public static void main(String[] args) {
-			
+
 			/*uno();*/
 			todos();
+
+
 
 		}
 	public static void uno() {
@@ -29,8 +34,10 @@ private static ClienteDao cdao;
 		System.out.println(cl1.getNombre());
 		System.out.println(cl1.getApellidos());
 	}
+
 	public static void todos() {
 		cdao.buscarTodos().forEach(System.out::println);
+
 	}
 		
 
