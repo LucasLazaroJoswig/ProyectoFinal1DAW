@@ -2,7 +2,8 @@ package modelo.entidades;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
+
+import java.util.Objects;
 
 
 /**
@@ -23,15 +24,14 @@ public class Cliente implements Serializable {
 	private String domicilio;
 
 	@Column(name="facturacion_anual")
-	private BigDecimal facturacionAnual;
+	private double facturacionAnual;
 
 	private String nombre;
 
 	@Column(name="numero_empleados")
 	private int numeroEmpleados;
 
-	public Cliente() {
-	}
+	
 
 	public String getCif() {
 		return this.cif;
@@ -57,11 +57,11 @@ public class Cliente implements Serializable {
 		this.domicilio = domicilio;
 	}
 
-	public BigDecimal getFacturacionAnual() {
+	public double getFacturacionAnual() {
 		return this.facturacionAnual;
 	}
 
-	public void setFacturacionAnual(BigDecimal facturacionAnual) {
+	public void setFacturacionAnual(double facturacionAnual) {
 		this.facturacionAnual = facturacionAnual;
 	}
 
@@ -80,5 +80,14 @@ public class Cliente implements Serializable {
 	public void setNumeroEmpleados(int numeroEmpleados) {
 		this.numeroEmpleados = numeroEmpleados;
 	}
+
+	@Override
+	public String toString() {
+		return "Cliente [cif=" + cif + ", apellidos=" + apellidos + ", domicilio=" + domicilio + ", facturacionAnual="
+				+ facturacionAnual + ", nombre=" + nombre + ", numeroEmpleados=" + numeroEmpleados + "]";
+	}
+
+	
+	
 
 }

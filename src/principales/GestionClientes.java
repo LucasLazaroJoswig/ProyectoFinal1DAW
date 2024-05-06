@@ -46,21 +46,21 @@ public class GestionClientes {
 
     private static void altaCliente() {
         // Implementar la funcionalidad para dar de alta un cliente
-        System.out.println("Implementar altaCliente()");
+        
     }
 
     private static void buscarCliente() {
         // Implementar la funcionalidad para buscar un cliente
-        System.out.println("Implementar buscarCliente()");
+        
     }
 
     private static void mostrarTodos() {
         // Implementar la funcionalidad para mostrar todos los clientes
-        System.out.println("Implementar mostrarTodos()");
+        
     }
 
     private static void eliminarCliente() {
         // Implementar la funcionalidad para eliminar un cliente
-        System.out.println("Implementar eliminarCliente()");
+        ;
     }
 }
