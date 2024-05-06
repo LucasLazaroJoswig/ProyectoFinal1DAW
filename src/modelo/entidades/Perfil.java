@@ -3,6 +3,7 @@ package modelo.entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 
 /**
@@ -51,5 +52,28 @@ public class Perfil implements Serializable {
 	public void setTasaStandard(BigDecimal tasaStandard) {
 		this.tasaStandard = tasaStandard;
 	}
+
+	@Override
+	public String toString() {
+		return "Perfil [idPerfil=" + idPerfil + ", nombre=" + nombre + ", tasaStandard=" + tasaStandard + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idPerfil);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Perfil other = (Perfil) obj;
+		return idPerfil == other.idPerfil;
+	}
+	
 
 }

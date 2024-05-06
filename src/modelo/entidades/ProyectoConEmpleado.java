@@ -3,6 +3,7 @@ package modelo.entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -78,6 +79,29 @@ public class ProyectoConEmpleado implements Serializable {
 
 	public void setProyecto(Proyecto proyecto) {
 		this.proyecto = proyecto;
+	}
+
+	@Override
+	public String toString() {
+		return "ProyectoConEmpleado [numeroOrden=" + numeroOrden + ", fechaIncorporacion=" + fechaIncorporacion
+				+ ", horasAsignadas=" + horasAsignadas + ", empleado=" + empleado + ", proyecto=" + proyecto + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(numeroOrden);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProyectoConEmpleado other = (ProyectoConEmpleado) obj;
+		return numeroOrden == other.numeroOrden;
 	}
 
 }
