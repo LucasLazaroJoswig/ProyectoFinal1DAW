@@ -2,6 +2,7 @@ package modelo.dao;
 
 import java.util.List;
 
+import modelo.entidades.Cliente;
 import modelo.entidades.Empleado;
 
 
@@ -13,7 +14,6 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Empl
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public boolean alta(Empleado obj) {
 		try {
 			tx.begin();
@@ -29,7 +29,7 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Empl
 	@Override
 	public boolean eliminar(Integer clave) {
 		try {
-			Empleado empleado = buscarUno(clave);
+			Empleado empleado= buscarUno(clave);
 			if (empleado != null) {
 				tx.begin();
 					em.remove(empleado);
@@ -47,9 +47,10 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Empl
 	@Override
 	public boolean modificar(Empleado obj) {
 		try {
-			if (buscarUno(obj.getIdEmpl()) != null) {
+	 		Empleado empleado1 = buscarUno(obj.getIdEmpl());
+			if (empleado1 != null) {
 				tx.begin();
-					em.merge(obj);
+					em.persist(empleado1);
 				tx.commit();
 				return true;
 			}else
@@ -64,17 +65,16 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Empl
 	@Override
 	public Empleado buscarUno(Integer clave) {
 		
-		// TODO Auto-generated method stub
 		return em.find(Empleado.class, clave);
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Empleado> buscarTodos() {
-		jpql = "select e from Empleados e ";
-		return em.createQuery(jpql);
-			return query.getResultList();
+		jpql = "select e from Empleados e";
+		query = em.createQuery(jpql);
+		return query.getResultList();
 	}
-
 	@Override
 	public List<Empleado> empleadosByDepartamento(int idDepar) {
 		// TODO Auto-generated method stub
