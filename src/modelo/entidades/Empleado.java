@@ -40,7 +40,7 @@ public class Empleado implements Serializable {
 
 	private String password;
 
-	private BigDecimal salario;
+	private double salario;
 
 	//uni-directional many-to-one association to Departamento
 	@ManyToOne
@@ -123,11 +123,11 @@ public class Empleado implements Serializable {
 		this.password = password;
 	}
 
-	public BigDecimal getSalario() {
+	public double getSalario() {
 		return this.salario;
 	}
 
-	public void setSalario(BigDecimal salario) {
+	public void setSalario(Double salario) {
 		this.salario = salario;
 	}
 

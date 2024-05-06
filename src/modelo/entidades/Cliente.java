@@ -1,8 +1,9 @@
 package modelo.entidades;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
-import java.math.BigDecimal;
+
 
 
 /**
@@ -23,7 +24,7 @@ public class Cliente implements Serializable {
 	private String domicilio;
 
 	@Column(name="facturacion_anual")
-	private BigDecimal facturacionAnual;
+	private double facturacionAnual;
 
 	private String nombre;
 
@@ -57,11 +58,11 @@ public class Cliente implements Serializable {
 		this.domicilio = domicilio;
 	}
 
-	public BigDecimal getFacturacionAnual() {
+	public double getFacturacionAnual() {
 		return this.facturacionAnual;
 	}
 
-	public void setFacturacionAnual(BigDecimal facturacionAnual) {
+	public void setFacturacionAnual(double facturacionAnual) {
 		this.facturacionAnual = facturacionAnual;
 	}
 
