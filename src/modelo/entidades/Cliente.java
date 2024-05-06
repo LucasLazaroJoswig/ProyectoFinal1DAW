@@ -1,6 +1,7 @@
 package modelo.entidades;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.*;
 
@@ -80,6 +81,29 @@ public class Cliente implements Serializable {
 
 	public void setNumeroEmpleados(int numeroEmpleados) {
 		this.numeroEmpleados = numeroEmpleados;
+	}
+
+	@Override
+	public String toString() {
+		return "Cliente [cif=" + cif + ", apellidos=" + apellidos + ", domicilio=" + domicilio + ", facturacionAnual="
+				+ facturacionAnual + ", nombre=" + nombre + ", numeroEmpleados=" + numeroEmpleados + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(cif);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(cif, other.cif);
 	}
 
 	

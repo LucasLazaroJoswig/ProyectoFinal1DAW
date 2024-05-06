@@ -1,8 +1,12 @@
 package testing;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import modelo.dao.*;
 import modelo.entidades.Cliente;
+
 
 
 
@@ -16,7 +20,8 @@ private static ClienteDao cdao;
 	
 	public static void main(String[] args) {
 			
-			uno();
+			/*uno();*/
+			todos();
 
 		}
 	public static void uno() {
@@ -24,7 +29,9 @@ private static ClienteDao cdao;
 		System.out.println(cl1.getNombre());
 		System.out.println(cl1.getApellidos());
 	}
-		
+	public static void todos() {
+		cdao.buscarTodos().forEach(System.out::println);
+	}
 		
 
 	}

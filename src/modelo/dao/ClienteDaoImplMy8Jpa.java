@@ -11,36 +11,73 @@ import modelo.entidades.Cliente;
 
 
 
-public class ClienteDaoImplMy8Jpa implements ClienteDao{
+public class ClienteDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements ClienteDao{
+
+
+	public ClienteDaoImplMy8Jpa() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public boolean alta(Cliente obj) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			tx.begin();
+				em.persist(obj);
+			tx.commit();
+			return false;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean eliminar(String clave) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Cliente cliente = buscarUno(clave);
+			if (cliente != null) {
+				tx.begin();
+					em.remove(cliente);
+				tx.commit();
+				return true;
+			}else
+				return false;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean modificar(Cliente obj) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+		try {
+	 		Cliente cliente1 = buscarUno(obj.getCif());
+			if (cliente1 != null) {
+				tx.begin();
+					em.persist(cliente1);
+				tx.commit();
+				return true;
+			}else
+				return false;
 
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
 	@Override
 	public Cliente buscarUno(String clave) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Cliente.class, clave);
 	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> buscarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		jpql = "select c from Cliente c";
+		query = em.createQuery(jpql);
+		return query.getResultList();
 	}
 	
 }

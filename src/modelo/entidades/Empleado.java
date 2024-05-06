@@ -5,6 +5,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -169,4 +170,63 @@ public class Empleado implements Serializable {
 		return proyecto;
 	}
 
+	@Override
+	public String toString() {
+		return "Empleado [idEmpl=" + idEmpl + ", apellidos=" + apellidos + ", email=" + email + ", fechaIngreso="
+				+ fechaIngreso + ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", nombre=" + nombre
+				+ ", password=" + password + ", salario=" + salario + ", departamento=" + departamento + ", perfil="
+				+ perfil + ", proyectos=" + proyectos + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idEmpl);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empleado other = (Empleado) obj;
+		return idEmpl == other.idEmpl;
+	}
+	/*public double salarioBruto() {
+		comision=comision/100;
+		double complemento=salario*comision;
+		double salarioBruto = salario+complemento;
+		return salarioBruto;
+	}
+	public String literalSexo() {
+		switch (genero) {
+		case "H": {
+			return "Hombre";
+		}
+		case "M":{
+			return "Mujer";
+		}
+		default:
+			return "El empleado no tiene el genero asignado con el formato adecuado: H o M";
+		}
+	}
+	public double salarioMensual(int meses) {
+		comision=comision/100;
+		double complemento=salario*comision;
+		double salarioBruto = salario+complemento;
+		double salarioMensual = salarioBruto / meses;
+		return salarioMensual;
+	}
+	public String obtenerEmail() {
+		return nombre.substring(0,1).toLowerCase()+ apellidos.split(" ")[0].toLowerCase();
+		
+	}
+	public String nombreCompleto() {
+		String nombreCompleto=nombre +" "+ apellidos;
+		return nombreCompleto;
+	}*/
+
+	
 }
