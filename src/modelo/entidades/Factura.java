@@ -76,8 +76,8 @@ public class Factura implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Factura [idFactura=" + idFactura + ", descripcion=" + descripcion + ", fechaFactura=" + fechaFactura
-				+ ", proyecto=" + proyecto + "]";
+		return "Código de Factura : " + idFactura + " Descripcion: " + descripcion + " Fecha Factura: " + fechaFactura;
+		
 	}
 
 	@Override

@@ -115,5 +115,9 @@ public class ProyectoConEmpleado implements Serializable {
 		ProyectoConEmpleado other = (ProyectoConEmpleado) obj;
 		return numeroOrden == other.numeroOrden;
 	}
+	public double costeHorasAsignadas() {
+		double precio_por_hora = empleado.getPerfil().getTasaStandard();
+		return precio_por_hora*horasAsignadas;
+	}
 
 }
