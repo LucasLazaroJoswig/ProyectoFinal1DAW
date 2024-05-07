@@ -88,7 +88,7 @@ jpql= "select p from Proyecto p where estado = :estado";
 
 	@Override
 	public List<Proyecto> proyectosByCliente(String cif) {
-jpql= "select p from Proyecto p where cif = :cif";
+		jpql= "select p from Proyecto p where cif = :cif";
 		
 		query = em.createQuery(jpql);
 	//	query.setParameter(1, regionId);

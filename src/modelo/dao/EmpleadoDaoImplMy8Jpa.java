@@ -4,6 +4,7 @@ import java.util.List;
 
 import modelo.entidades.Cliente;
 import modelo.entidades.Empleado;
+import modelo.entidades.Proyecto;
 
 
 public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements EmpleadoDao {
@@ -77,32 +78,54 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Empl
 	}
 	@Override
 	public List<Empleado> empleadosByDepartamento(int idDepar) {
-		// TODO Auto-generated method stub
-		return null;
+jpql= "select e from Empleado e where id_depar = :idDepar";
+		
+		query = em.createQuery(jpql);
+	//	query.setParameter(1, regionId);
+	 	query.setParameter("idDepar",idDepar);
+		return query.getResultList();
 	}
 
 	@Override
 	public List<Empleado> empleadosBySexo(char sexo) {
-		// TODO Auto-generated method stub
-		return null;
+jpql= "select e from Empleado e where genero = :genero";
+		
+		query = em.createQuery(jpql);
+	//	query.setParameter(1, regionId);
+	 	query.setParameter("genero",sexo);
+		return query.getResultList();
 	}
 
 	@Override
 	public List<Empleado> empleadosByApellido(String subcadena) {
-		// TODO Auto-generated method stub
-		return null;
+jpql= "select e from Empleado e where e.apellidos like :apellido";
+		
+		query = em.createQuery(jpql);
+	//	query.setParameter(1, regionId);
+	 	query.setParameter("apellido", "%" + subcadena + "%");
+		return query.getResultList();
 	}
 
 	@Override
 	public double salarioTotal() {
-		// TODO Auto-generated method stub
-		return 0;
+		jpql= "select e from Empleado e";
+		
+		query = em.createQuery(jpql);
+		@SuppressWarnings("unchecked")
+		List<Empleado> lista = query.getResultList();
+		return lista.stream().mapToDouble(p -> p.getSalario()).sum();
 	}
 
 	@Override
 	public double salarioTotal(int idDepar) {
-		// TODO Auto-generated method stub
-		return 0;
+jpql= "select e from Empleado e where id_depar=:idDepar";
+		
+		query = em.createQuery(jpql);
+		query.setParameter("idDepar",idDepar);
+		@SuppressWarnings("unchecked")
+		List<Empleado> lista = query.getResultList();
+		return lista.stream().mapToDouble(p -> p.getSalario()).sum();
+	
 	}
 
 	
