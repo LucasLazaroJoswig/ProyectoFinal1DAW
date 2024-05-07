@@ -2,8 +2,16 @@ package principales;
 
 import java.util.Scanner;
 
-public class GestionClientes {
+import modelo.dao.ClienteDao;
+import modelo.dao.ClienteDaoImplMy8Jpa;
+import modelo.dao.EmpleadoDaoImplMy8Jpa;
+import modelo.entidades.Cliente;
 
+public class GestionClientes {
+	private static ClienteDao cdao;
+	static {
+		cdao=new ClienteDaoImplMy8Jpa();
+	}
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -41,16 +49,48 @@ public class GestionClientes {
             }
         } while (opcion != 5);
 
-        scanner.close();
+
     }
 
     private static void altaCliente() {
-        // Implementar la funcionalidad para dar de alta un cliente
+    	Scanner scanner = new Scanner(System.in);
+    	String cif;
+    	String nombre;
+    	String apellidos;
+    	String domicilio;
+    	double fact_anual;
+    	int num_empleados;
+    	
+        System.out.println("Digame el CIF");
+        cif = scanner.nextLine();
+
+        System.out.println("Digame el nombre");
+        nombre = scanner.nextLine();
+        
+        System.out.println("Digame los apellidos");
+        apellidos = scanner.nextLine();
+        
+        System.out.println("Digame el domicilio");
+        domicilio = scanner.nextLine();
+        
+        System.out.println("Digame la facturacion anual");
+        fact_anual = scanner.nextDouble();
+        
+        System.out.println("Digame el numero de empleados");
+        num_empleados = scanner.nextInt();
+        
+        Cliente c = new Cliente(cif, apellidos, domicilio, fact_anual, nombre, num_empleados);
+        System.out.println(cdao.alta(c));
         
     }
 
     private static void buscarCliente() {
-        // Implementar la funcionalidad para buscar un cliente
+    	Scanner scanner = new Scanner(System.in);
+        System.out.println("Dame el CIF del cliente que quieres buscar");
+        String cif;
+        cif = scanner.nextLine();
+        Cliente cl1 = cdao.buscarUno(cif);
+        System.out.println(cl1);
         
     }
 

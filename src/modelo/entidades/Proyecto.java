@@ -2,7 +2,6 @@ package modelo.entidades;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
@@ -22,10 +21,10 @@ public class Proyecto implements Serializable {
 	private String idProyecto;
 
 	@Column(name="coste_real")
-	private BigDecimal costeReal;
+	private double costeReal;
 
 	@Column(name="costes_previsto")
-	private BigDecimal costesPrevisto;
+	private double costesPrevisto;
 
 	private String descripcion;
 
@@ -44,7 +43,7 @@ public class Proyecto implements Serializable {
 	private Date fechaInicio;
 
 	@Column(name="venta_previsto")
-	private BigDecimal ventaPrevisto;
+	private double ventaPrevisto;
 
 	//uni-directional many-to-one association to Cliente
 	@ManyToOne
@@ -67,19 +66,19 @@ public class Proyecto implements Serializable {
 		this.idProyecto = idProyecto;
 	}
 
-	public BigDecimal getCosteReal() {
+	public double getCosteReal() {
 		return this.costeReal;
 	}
 
-	public void setCosteReal(BigDecimal costeReal) {
+	public void setCosteReal(double costeReal) {
 		this.costeReal = costeReal;
 	}
 
-	public BigDecimal getCostesPrevisto() {
+	public double getCostesPrevisto() {
 		return this.costesPrevisto;
 	}
 
-	public void setCostesPrevisto(BigDecimal costesPrevisto) {
+	public void setCostesPrevisto(double costesPrevisto) {
 		this.costesPrevisto = costesPrevisto;
 	}
 
@@ -123,11 +122,11 @@ public class Proyecto implements Serializable {
 		this.fechaInicio = fechaInicio;
 	}
 
-	public BigDecimal getVentaPrevisto() {
+	public double getVentaPrevisto() {
 		return this.ventaPrevisto;
 	}
 
-	public void setVentaPrevisto(BigDecimal ventaPrevisto) {
+	public void setVentaPrevisto(double ventaPrevisto) {
 		this.ventaPrevisto = ventaPrevisto;
 	}
 
