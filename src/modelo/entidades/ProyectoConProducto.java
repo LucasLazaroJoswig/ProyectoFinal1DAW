@@ -1,6 +1,8 @@
 package modelo.entidades;
 
 import java.io.Serializable;
+import java.util.Objects;
+
 import javax.persistence.*;
 
 
@@ -35,6 +37,15 @@ public class ProyectoConProducto implements Serializable {
 	private Proyecto proyecto;
 
 	public ProyectoConProducto() {
+	}
+
+	public ProyectoConProducto(int numOrden, int cantidad, int precioAsignado, Producto producto, Proyecto proyecto) {
+		super();
+		this.numOrden = numOrden;
+		this.cantidad = cantidad;
+		this.precioAsignado = precioAsignado;
+		this.producto = producto;
+		this.proyecto = proyecto;
 	}
 
 	public int getNumOrden() {
@@ -75,6 +86,29 @@ public class ProyectoConProducto implements Serializable {
 
 	public void setProyecto(Proyecto proyecto) {
 		this.proyecto = proyecto;
+	}
+
+	@Override
+	public String toString() {
+		return "ProyectoConProducto [numOrden=" + numOrden + ", cantidad=" + cantidad + ", precioAsignado="
+				+ precioAsignado + ", producto=" + producto + ", proyecto=" + proyecto + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(numOrden);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ProyectoConProducto other = (ProyectoConProducto) obj;
+		return numOrden == other.numOrden;
 	}
 
 }

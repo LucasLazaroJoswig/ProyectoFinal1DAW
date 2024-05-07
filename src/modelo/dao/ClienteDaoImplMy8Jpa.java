@@ -1,4 +1,5 @@
-package modelo.dao;
+ package modelo.dao;
+
 
 import java.util.List;
 
@@ -6,10 +7,9 @@ import modelo.entidades.Cliente;
 
 
 
-
 public class ClienteDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements ClienteDao{
 
-	
+
 	public ClienteDaoImplMy8Jpa() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -21,7 +21,7 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Clien
 			tx.begin();
 				em.persist(obj);
 			tx.commit();
-			return false;
+			return true;
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
@@ -39,7 +39,7 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Clien
 				return true;
 			}else
 				return false;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
@@ -57,19 +57,17 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Clien
 				return true;
 			}else
 				return false;
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
 	}
-
+	
 	@Override
 	public Cliente buscarUno(String clave) {
-		
 		return em.find(Cliente.class, clave);
 	}
-	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Cliente> buscarTodos() {

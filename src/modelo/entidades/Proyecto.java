@@ -3,6 +3,7 @@ package modelo.entidades;
 import java.io.Serializable; 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -57,6 +58,25 @@ public class Proyecto implements Serializable {
 
 	public Proyecto() {
 	}
+	
+
+	public Proyecto(String idProyecto, double costeReal, double costesPrevisto, String descripcion, String estado,
+			Date fechaFinPrevisto, Date fechaFinReal, Date fechaInicio, double ventaPrevisto, Cliente cliente,
+			Empleado empleado) {
+		super();
+		this.idProyecto = idProyecto;
+		this.costeReal = costeReal;
+		this.costesPrevisto = costesPrevisto;
+		this.descripcion = descripcion;
+		this.estado = estado;
+		this.fechaFinPrevisto = fechaFinPrevisto;
+		this.fechaFinReal = fechaFinReal;
+		this.fechaInicio = fechaInicio;
+		this.ventaPrevisto = ventaPrevisto;
+		this.cliente = cliente;
+		this.empleado = empleado;
+	}
+
 
 	public String getIdProyecto() {
 		return this.idProyecto;
@@ -148,6 +168,7 @@ public class Proyecto implements Serializable {
 	
 public   double MargenPrevisto () {
 
+<<<<<<< HEAD
 	return ventaPrevisto - costesPrevisto;
 }
 
@@ -166,4 +187,31 @@ public int diferenciaFinPrevistoReal() {
 	return   (int) (fechaFinPrevisto.getTime() - fechaFinReal.getTime());
 
 }
+=======
+	@Override
+	public String toString() {
+		return "Proyecto [idProyecto=" + idProyecto + ", costeReal=" + costeReal + ", costesPrevisto=" + costesPrevisto
+				+ ", descripcion=" + descripcion + ", estado=" + estado + ", fechaFinPrevisto=" + fechaFinPrevisto
+				+ ", fechaFinReal=" + fechaFinReal + ", fechaInicio=" + fechaInicio + ", ventaPrevisto=" + ventaPrevisto
+				+ ", cliente=" + cliente + ", empleado=" + empleado + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(idProyecto);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Proyecto other = (Proyecto) obj;
+		return Objects.equals(idProyecto, other.idProyecto);
+	}
+
+>>>>>>> 3cedbe1aaa407f1aba97854e8e831f0c6a6eee5a
 }
