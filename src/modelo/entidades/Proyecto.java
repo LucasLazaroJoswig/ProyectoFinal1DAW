@@ -1,6 +1,6 @@
 package modelo.entidades;
 
-import java.io.Serializable;
+import java.io.Serializable; 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
@@ -33,6 +33,7 @@ public class Proyecto implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_fin_previsto")
 	private Date fechaFinPrevisto;
+	
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_fin_real")
@@ -164,7 +165,29 @@ public class Proyecto implements Serializable {
 	public void setEmpleado(Empleado empleado) {
 		this.empleado = empleado;
 	}
+	
+public   double MargenPrevisto () {
 
+<<<<<<< HEAD
+	return ventaPrevisto - costesPrevisto;
+}
+
+public double MargenReal() {
+	
+	return ventaPrevisto - costeReal;
+}
+
+public double DiferenciaGastos() {
+
+	return costeReal - costesPrevisto;
+}
+
+public int diferenciaFinPrevistoReal() {
+	
+	return   (int) (fechaFinPrevisto.getTime() - fechaFinReal.getTime());
+
+}
+=======
 	@Override
 	public String toString() {
 		return "Proyecto [idProyecto=" + idProyecto + ", costeReal=" + costeReal + ", costesPrevisto=" + costesPrevisto
@@ -190,4 +213,5 @@ public class Proyecto implements Serializable {
 		return Objects.equals(idProyecto, other.idProyecto);
 	}
 
+>>>>>>> 3cedbe1aaa407f1aba97854e8e831f0c6a6eee5a
 }
