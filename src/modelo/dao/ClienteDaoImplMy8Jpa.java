@@ -1,10 +1,6 @@
  package modelo.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import modelo.entidades.Cliente;
@@ -25,7 +21,7 @@ public class ClienteDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Clien
 			tx.begin();
 				em.persist(obj);
 			tx.commit();
-			return false;
+			return true;
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;

@@ -15,16 +15,19 @@ import modelo.entidades.Empleado;
 public class TestPrueba {
 private static ClienteDao cdao;
 private static EmpleadoDao edao;
+private static ProyectoDao pdao;
 	
 	static {
 		cdao=new ClienteDaoImplMy8Jpa();
 		edao=new EmpleadoDaoImplMy8Jpa();
+		pdao=new ProyectoDaoImplMy8Jpa();
 	}
 	
 	public static void main(String[] args) {
 
 			/*uno();*/
-			todos();
+			//todos();
+			dias();
 
 
 
@@ -38,6 +41,9 @@ private static EmpleadoDao edao;
 	public static void todos() {
 		cdao.buscarTodos().forEach(System.out::println);
 
+	}
+	public static void dias() {
+		pdao.diasATerminoProyectoActivo("FOR2021002");
 	}
 		
 

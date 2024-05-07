@@ -194,11 +194,9 @@ public class Empleado implements Serializable {
 		Empleado other = (Empleado) obj;
 		return idEmpl == other.idEmpl;
 	}
-	/*public double salarioBruto() {
-		comision=comision/100;
-		double complemento=salario*comision;
-		double salarioBruto = salario+complemento;
-		return salarioBruto;
+	public double salarioBruto() {
+
+		return this.salario;
 	}
 	public String literalSexo() {
 		switch (genero) {
@@ -213,9 +211,8 @@ public class Empleado implements Serializable {
 		}
 	}
 	public double salarioMensual(int meses) {
-		comision=comision/100;
-		double complemento=salario*comision;
-		double salarioBruto = salario+complemento;
+		
+		double salarioBruto = salario;
 		double salarioMensual = salarioBruto / meses;
 		return salarioMensual;
 	}
@@ -226,7 +223,7 @@ public class Empleado implements Serializable {
 	public String nombreCompleto() {
 		String nombreCompleto=nombre +" "+ apellidos;
 		return nombreCompleto;
-	}*/
+	}
 
 	
 }
