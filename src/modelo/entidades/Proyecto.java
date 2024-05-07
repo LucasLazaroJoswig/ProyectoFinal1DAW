@@ -57,6 +57,25 @@ public class Proyecto implements Serializable {
 
 	public Proyecto() {
 	}
+	
+
+	public Proyecto(String idProyecto, double costeReal, double costesPrevisto, String descripcion, String estado,
+			Date fechaFinPrevisto, Date fechaFinReal, Date fechaInicio, double ventaPrevisto, Cliente cliente,
+			Empleado empleado) {
+		super();
+		this.idProyecto = idProyecto;
+		this.costeReal = costeReal;
+		this.costesPrevisto = costesPrevisto;
+		this.descripcion = descripcion;
+		this.estado = estado;
+		this.fechaFinPrevisto = fechaFinPrevisto;
+		this.fechaFinReal = fechaFinReal;
+		this.fechaInicio = fechaInicio;
+		this.ventaPrevisto = ventaPrevisto;
+		this.cliente = cliente;
+		this.empleado = empleado;
+	}
+
 
 	public String getIdProyecto() {
 		return this.idProyecto;

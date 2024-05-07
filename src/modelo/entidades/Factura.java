@@ -34,6 +34,14 @@ public class Factura implements Serializable {
 	public Factura() {
 	}
 
+	public Factura(String idFactura, String descripcion, Date fechaFactura, Proyecto proyecto) {
+		super();
+		this.idFactura = idFactura;
+		this.descripcion = descripcion;
+		this.fechaFactura = fechaFactura;
+		this.proyecto = proyecto;
+	}
+
 	public String getIdFactura() {
 		return this.idFactura;
 	}
