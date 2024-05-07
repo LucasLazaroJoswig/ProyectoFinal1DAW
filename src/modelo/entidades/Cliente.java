@@ -32,6 +32,18 @@ public class Cliente implements Serializable {
 	@Column(name="numero_empleados")
 	private int numeroEmpleados;
 
+	
+	public Cliente(String cif, String apellidos, String domicilio, double facturacionAnual, String nombre,
+			int numeroEmpleados) {
+		super();
+		this.cif = cif;
+		this.apellidos = apellidos;
+		this.domicilio = domicilio;
+		this.facturacionAnual = facturacionAnual;
+		this.nombre = nombre;
+		this.numeroEmpleados = numeroEmpleados;
+	}
+
 	public Cliente() {
 	}
 

@@ -115,7 +115,7 @@ jpql= "select p from Proyecto p where jefe_proyecto = :jefeProyecto and estado =
 		
 		@SuppressWarnings("unchecked")
 		List<Proyecto> lista = query.getResultList();
-		return lista.stream().mapToDouble(p -> p.getVentaPrevisto().doubleValue()).sum();
+		return lista.stream().mapToDouble(p -> p.getVentaPrevisto()).sum();
 		
 	}
 
@@ -128,7 +128,7 @@ jpql= "select p from Proyecto p where jefe_proyecto = :jefeProyecto and estado =
 	@Override
 	public int diasATerminoProyectoActivo(String codigoProyecto) {
 		Proyecto p = em.find(Proyecto.class, codigoProyecto);
-		Date fecha_hoy = new Date(System.cu);
+		Date fecha_hoy = new Date(System.currentTimeMillis());
 		Date fecha_prevista = p.getFechaFinPrevisto();
 		int dias = (int)((fecha_hoy.getTime()-fecha_prevista.getTime()));
 		return dias;

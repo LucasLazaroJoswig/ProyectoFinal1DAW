@@ -59,6 +59,26 @@ public class Empleado implements Serializable {
 
 	public Empleado() {
 	}
+	
+	
+	public Empleado(int idEmpl, String apellidos, String email, Date fechaIngreso, Date fechaNacimiento, String genero,
+			String nombre, String password, double salario, Departamento departamento, Perfil perfil,
+			List<Proyecto> proyectos) {
+		super();
+		this.idEmpl = idEmpl;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.fechaIngreso = fechaIngreso;
+		this.fechaNacimiento = fechaNacimiento;
+		this.genero = genero;
+		this.nombre = nombre;
+		this.password = password;
+		this.salario = salario;
+		this.departamento = departamento;
+		this.perfil = perfil;
+		this.proyectos = proyectos;
+	}
+
 
 	public int getIdEmpl() {
 		return this.idEmpl;

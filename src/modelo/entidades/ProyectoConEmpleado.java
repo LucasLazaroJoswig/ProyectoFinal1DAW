@@ -40,6 +40,18 @@ public class ProyectoConEmpleado implements Serializable {
 
 	public ProyectoConEmpleado() {
 	}
+	
+
+	public ProyectoConEmpleado(int numeroOrden, Date fechaIncorporacion, int horasAsignadas, Empleado empleado,
+			Proyecto proyecto) {
+		super();
+		this.numeroOrden = numeroOrden;
+		this.fechaIncorporacion = fechaIncorporacion;
+		this.horasAsignadas = horasAsignadas;
+		this.empleado = empleado;
+		this.proyecto = proyecto;
+	}
+
 
 	public int getNumeroOrden() {
 		return this.numeroOrden;

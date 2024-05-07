@@ -39,6 +39,15 @@ public class ProyectoConProducto implements Serializable {
 	public ProyectoConProducto() {
 	}
 
+	public ProyectoConProducto(int numOrden, int cantidad, int precioAsignado, Producto producto, Proyecto proyecto) {
+		super();
+		this.numOrden = numOrden;
+		this.cantidad = cantidad;
+		this.precioAsignado = precioAsignado;
+		this.producto = producto;
+		this.proyecto = proyecto;
+	}
+
 	public int getNumOrden() {
 		return this.numOrden;
 	}

@@ -27,6 +27,13 @@ public class Departamento implements Serializable {
 	public Departamento() {
 	}
 
+	public Departamento(int idDepar, String direccion, String nombre) {
+		super();
+		this.idDepar = idDepar;
+		this.direccion = direccion;
+		this.nombre = nombre;
+	}
+
 	public int getIdDepar() {
 		return this.idDepar;
 	}

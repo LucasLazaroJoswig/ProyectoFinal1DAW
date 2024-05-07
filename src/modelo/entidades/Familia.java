@@ -25,6 +25,14 @@ public class Familia implements Serializable {
 
 	public Familia() {
 	}
+	
+
+	public Familia(int idFamilia, String descripcion) {
+		super();
+		this.idFamilia = idFamilia;
+		this.descripcion = descripcion;
+	}
+
 
 	public int getIdFamilia() {
 		return this.idFamilia;

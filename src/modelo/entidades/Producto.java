@@ -39,6 +39,19 @@ public class Producto implements Serializable {
 
 	public Producto() {
 	}
+	
+
+	public Producto(int idProducto, String descripcion, Date fechaCreacion, BigDecimal precio, int stock,
+			Familia familia) {
+		super();
+		this.idProducto = idProducto;
+		this.descripcion = descripcion;
+		this.fechaCreacion = fechaCreacion;
+		this.precio = precio;
+		this.stock = stock;
+		this.familia = familia;
+	}
+
 
 	public int getIdProducto() {
 		return this.idProducto;

@@ -28,6 +28,15 @@ public class Perfil implements Serializable {
 
 	public Perfil() {
 	}
+	
+
+	public Perfil(int idPerfil, String nombre, BigDecimal tasaStandard) {
+		super();
+		this.idPerfil = idPerfil;
+		this.nombre = nombre;
+		this.tasaStandard = tasaStandard;
+	}
+
 
 	public int getIdPerfil() {
 		return this.idPerfil;
