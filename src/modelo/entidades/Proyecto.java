@@ -168,7 +168,7 @@ public class Proyecto implements Serializable {
 	
 public   double MargenPrevisto () {
 
-<<<<<<< HEAD
+
 	return ventaPrevisto - costesPrevisto;
 }
 
@@ -187,7 +187,7 @@ public int diferenciaFinPrevistoReal() {
 	return   (int) (fechaFinPrevisto.getTime() - fechaFinReal.getTime());
 
 }
-=======
+
 	@Override
 	public String toString() {
 		return "Proyecto [idProyecto=" + idProyecto + ", costeReal=" + costeReal + ", costesPrevisto=" + costesPrevisto
@@ -213,5 +213,5 @@ public int diferenciaFinPrevistoReal() {
 		return Objects.equals(idProyecto, other.idProyecto);
 	}
 
->>>>>>> 3cedbe1aaa407f1aba97854e8e831f0c6a6eee5a
+
 }
