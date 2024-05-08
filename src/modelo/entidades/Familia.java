@@ -52,7 +52,7 @@ public class Familia implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Familia [idFamilia=" + idFamilia + ", descripcion=" + descripcion + "]";
+		return "Familia [idFamilia=" + idFamilia + ", Descripcion=" + descripcion + "]";
 	}
 
 	@Override

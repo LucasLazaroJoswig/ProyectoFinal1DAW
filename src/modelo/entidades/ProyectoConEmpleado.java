@@ -96,8 +96,8 @@ public class ProyectoConEmpleado implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ProyectoConEmpleado [numeroOrden=" + numeroOrden + ", fechaIncorporacion=" + fechaIncorporacion
-				+ ", horasAsignadas=" + horasAsignadas + ", empleado=" + empleado + ", proyecto=" + proyecto + "]";
+		return "Proyecto Con Empleado [Número Orden=" + numeroOrden + ", Fecha Incorporación=" + fechaIncorporacion
+				+ ", Horas Asignadas=" + horasAsignadas + ", Empleado=" + empleado + ", Proyecto=" + proyecto + "]";
 	}
 
 	@Override

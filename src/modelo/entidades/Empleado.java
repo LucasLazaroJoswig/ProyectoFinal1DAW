@@ -192,10 +192,10 @@ public class Empleado implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Empleado [idEmpl=" + idEmpl + ", apellidos=" + apellidos + ", email=" + email + ", fechaIngreso="
-				+ fechaIngreso + ", fechaNacimiento=" + fechaNacimiento + ", genero=" + genero + ", nombre=" + nombre
-				+ ", password=" + password + ", salario=" + salario + ", departamento=" + departamento + ", perfil="
-				+ perfil + ", proyectos=" + proyectos + "]";
+		return "Empleado [idEmpl=" + idEmpl + ", Apellidos=" + apellidos + ", Nombre=" + nombre+
+				", Email=" + email + ", Fecha Ingreso="+ fechaIngreso + ", Fecha Nacimiento=" + fechaNacimiento + 
+				", Género=" + genero +  ", Password=" + password + ", Salario=" + salario + ", Departamento=" + departamento + ", Perfil="
+				+ perfil + ", Proyectos=" + proyectos + "]";
 	}
 
 	@Override

@@ -2,7 +2,6 @@ package modelo.entidades;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
@@ -28,7 +27,7 @@ public class Producto implements Serializable {
 	@Column(name="fecha_creacion")
 	private Date fechaCreacion;
 
-	private BigDecimal precio;
+	private double precio;
 
 	private int stock;
 
@@ -41,7 +40,7 @@ public class Producto implements Serializable {
 	}
 	
 
-	public Producto(int idProducto, String descripcion, Date fechaCreacion, BigDecimal precio, int stock,
+	public Producto(int idProducto, String descripcion, Date fechaCreacion, double precio, int stock,
 			Familia familia) {
 		super();
 		this.idProducto = idProducto;
@@ -77,11 +76,11 @@ public class Producto implements Serializable {
 		this.fechaCreacion = fechaCreacion;
 	}
 
-	public BigDecimal getPrecio() {
+	public double getPrecio() {
 		return this.precio;
 	}
 
-	public void setPrecio(BigDecimal precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 
@@ -103,8 +102,8 @@ public class Producto implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Producto [idProducto=" + idProducto + ", descripcion=" + descripcion + ", fechaCreacion="
-				+ fechaCreacion + ", precio=" + precio + ", stock=" + stock + ", familia=" + familia + "]";
+		return "Producto [idProducto=" + idProducto + ", Descripcion=" + descripcion + ", Fecha Creacion="
+				+ fechaCreacion + ", Precio=" + precio + ", Stock=" + stock + ", Familia=" + familia + "]";
 	}
 
 	@Override

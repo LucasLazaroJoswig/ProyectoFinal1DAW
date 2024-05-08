@@ -2,6 +2,7 @@ package modelo.dao;
 
 import java.util.List;
 
+import modelo.entidades.Empleado;
 import modelo.entidades.ProyectoConEmpleado;
 
 public interface EmpleadoEnProyectoDao extends IntGenericoCrud<Integer, ProyectoConEmpleado>{

@@ -191,10 +191,10 @@ public int diferenciaFinPrevistoReal() {
 
 	@Override
 	public String toString() {
-		return "Proyecto [idProyecto=" + idProyecto + ", costeReal=" + costeReal + ", costesPrevisto=" + costesPrevisto
-				+ ", descripcion=" + descripcion + ", estado=" + estado + ", fechaFinPrevisto=" + fechaFinPrevisto
-				+ ", fechaFinReal=" + fechaFinReal + ", fechaInicio=" + fechaInicio + ", ventaPrevisto=" + ventaPrevisto
-				+ ", cliente=" + cliente + ", empleado=" + empleado + "]";
+		return "Proyecto [idProyecto=" + idProyecto + ", Coste Real=" + costeReal + ", Costes Previstos=" + costesPrevisto
+				+ ", Descripcion=" + descripcion + ", Estado=" + estado + ", Fecha Fin Previsto=" + fechaFinPrevisto
+				+ ", Fecha Fin Real=" + fechaFinReal + ", Fecha Inicio=" + fechaInicio + ", Venta Previsto=" + ventaPrevisto
+				+ ", Cliente=" + cliente + ", Empleado=" + empleado + "]";
 	}
 
 	@Override
