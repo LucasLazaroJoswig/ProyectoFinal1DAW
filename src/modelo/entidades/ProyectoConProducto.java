@@ -90,8 +90,8 @@ public class ProyectoConProducto implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ProyectoConProducto [numOrden=" + numOrden + ", cantidad=" + cantidad + ", precioAsignado="
-				+ precioAsignado + ", producto=" + producto + ", proyecto=" + proyecto + "]";
+		return "Proyecto Con Producto [Número de Orden=" + numOrden + ", Cantidad=" + cantidad + ", Precio Asignado="
+				+ precioAsignado + ", Producto=" + producto + ", Proyecto=" + proyecto + "]";
 	}
 
 	@Override
