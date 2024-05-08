@@ -78,7 +78,7 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Empl
 	}
 	@Override
 	public List<Empleado> empleadosByDepartamento(int idDepar) {
-jpql= "select e from Empleado e where id_depar = :idDepar";
+jpql= "select e from Empleado e where e.departamento.idDepar  = :idDepar";
 		
 		query = em.createQuery(jpql);
 	//	query.setParameter(1, regionId);
@@ -87,8 +87,8 @@ jpql= "select e from Empleado e where id_depar = :idDepar";
 	}
 
 	@Override
-	public List<Empleado> empleadosBySexo(char sexo) {
-jpql= "select e from Empleado e where genero = :genero";
+	public List<Empleado> empleadosBySexo(String sexo) {
+jpql= "select e from Empleado e where e.genero = :genero";
 		
 		query = em.createQuery(jpql);
 	//	query.setParameter(1, regionId);
