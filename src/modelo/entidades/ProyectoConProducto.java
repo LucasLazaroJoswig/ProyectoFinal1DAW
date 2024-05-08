@@ -110,5 +110,8 @@ public class ProyectoConProducto implements Serializable {
 		ProyectoConProducto other = (ProyectoConProducto) obj;
 		return numOrden == other.numOrden;
 	}
+	public double costeTotalProductos() {
+		return precioAsignado*cantidad;
+	}
 
 }

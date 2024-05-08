@@ -10,22 +10,27 @@ import modelo.dao.EmpleadoEnProyectoDao;
 import modelo.dao.FacturaDao;
 import modelo.dao.FacturaDaoImplMy8Jpa;
 import modelo.dao.ProyectoConEmpleadoDaoImplMy8Jpa;
+import modelo.dao.ProyectoConProductoDaoImplMy8Jpa;
 import modelo.dao.ProyectoDao;
 import modelo.dao.ProyectoDaoImplMy8Jpa;
+import modelo.entidades.Empleado;
 import modelo.entidades.Factura;
 import modelo.entidades.ProyectoConEmpleado;
+import modelo.entidades.ProyectoConProducto;
 
 
 public class ImprimirFactura {
 private static FacturaDao fdao;
 private static ProyectoDao pdao;
 private static EmpleadoEnProyectoDao epdao;
+private static ProyectoConProductoDaoImplMy8Jpa ppdao;
 private static Scanner scanner;
 	
 	static {
 		pdao = new ProyectoDaoImplMy8Jpa();
 		epdao = new ProyectoConEmpleadoDaoImplMy8Jpa();
 		fdao = new FacturaDaoImplMy8Jpa();
+		ppdao = new ProyectoConProductoDaoImplMy8Jpa();
 		scanner = new Scanner(System.in);
 	}
 	public static void main(String[] args) {
@@ -49,18 +54,20 @@ private static Scanner scanner;
 		System.out.println("\n");
 		System.out.println("DETALLE DE RECURSOS EMPLEADOS:");
 		System.out.println("LISTA EMPLEADOS");
-		List<ProyectoConEmpleado> empleados = epdao.empleadosByProyecto(idFactura);
+		List<ProyectoConEmpleado> empleados = epdao.empleadosByProyecto(facturaImp.getProyecto().getIdProyecto());
+		//System.out.println(empleados);
         for (ProyectoConEmpleado emp : empleados) {
-        	System.out.println("Apellidos, nombre : "+emp.getProyecto().getEmpleado().getApellidos()+", "+emp.getProyecto().getEmpleado().getNombre()+
+        	System.out.println("Apellidos, nombre : "+emp.getEmpleado().getApellidos()+", "+emp.getEmpleado().getNombre()+
     				"  	Horas(total): "+emp.getHorasAsignadas()+" Importe Repercutido : "+ emp.costeHorasAsignadas());
-        }     
-
-		System.out.println("\n");
-		/*System.out.println("LISTA PRODUCTOS");
-		ArrayList<ProyectoConProducto> productos = new ArrayList<>;
-		for (int i = 0; i < args.length; i++) {
-			
-		}
+        }    
+        System.out.println("Total horas : "+epdao.horasAsignadasAProyecto(facturaImp.getProyecto().getIdProyecto())+" Total Precio : "+epdao.costeActualDeProyecto(facturaImp.getProyecto().getIdProyecto()));
+		/*System.out.println("\n");
+		System.out.println("LISTA PRODUCTOS");
+		List<ProyectoConProducto> productos = ppdao.productosByProyecto(facturaImp.getProyecto().getIdProyecto());
+		for (ProyectoConProducto prod : productos) {
+        	System.out.println("Descripcion : "+prod.getProducto().getDescripcion()+". Cantidad : "+prod.getCantidad()+
+    				"Precio por uno: "+prod.getProducto().getPrecio());
+        } 
 		System.out.println("Descripción : "+facturaImp.getProyecto().getIdProyecto());*/
 		
 	}
