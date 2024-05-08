@@ -63,7 +63,7 @@ public class Perfil implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Perfil [idPerfil=" + idPerfil + ", nombre=" + nombre + ", tasaStandard=" + tasaStandard + "]";
+		return "Perfil [idPerfil=" + idPerfil + ", Nombre=" + nombre + ", Tasa Standard=" + tasaStandard + "]";
 	}
 
 	@Override
