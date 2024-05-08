@@ -97,8 +97,8 @@ public class Cliente implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Cliente [cif=" + cif + ", apellidos=" + apellidos + ", domicilio=" + domicilio + ", facturacionAnual="
-				+ facturacionAnual + ", nombre=" + nombre + ", numeroEmpleados=" + numeroEmpleados + "]";
+		return "Cliente [CIF=" + cif + ", Apellidos=" + apellidos + ", Nombre=" + nombre + ", Facturacion Anual="+ facturacionAnual+
+			", Domicilio=" + domicilio  +  ", Nº Empleados=" + numeroEmpleados + "]";
 	}
 
 	@Override
