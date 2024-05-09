@@ -127,7 +127,7 @@ jpql= "select p from Proyecto p where jefe_proyecto = :jefeProyecto and estado =
 		
 		@SuppressWarnings("unchecked")
 		List<Proyecto> lista = query.getResultList();
-		return lista.stream().mapToDouble(p -> p.getVentaPrevisto()-p.getCosteReal()).sum();
+		return lista.stream().mapToDouble(p -> p.getVentaPrevisto()-p.getCosteReal().doubleValue()).sum();
 	}
 
 	@Override
