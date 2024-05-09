@@ -9,4 +9,5 @@ public interface ProyectoConProductoDao extends IntGenericoCrud<Integer, Proyect
 
 	List<ProyectoConProducto> productosByProyecto(String codigoProyecto);
 	int asignarProductosAProyecto(List<ProyectoConProducto> empleados);
+	double TotalProductosByProyecto(String codigoProyecto);
 	}
