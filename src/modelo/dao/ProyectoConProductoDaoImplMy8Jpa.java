@@ -2,6 +2,7 @@ package modelo.dao;
 
 import java.util.List;
 
+import modelo.entidades.Empleado;
 import modelo.entidades.ProyectoConEmpleado;
 import modelo.entidades.ProyectoConProducto;
 
@@ -90,6 +91,15 @@ public class ProyectoConProductoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa impl
 			e.printStackTrace();
 			return 0;
 		}
+	}
+	public double TotalProductosByProyecto(String codigoProyecto) {
+		jpql = "select ep from ProyectoConProducto ep where ep.proyecto.idProyecto = ?1";
+		query = em.createQuery(jpql);
+	//	query.setParameter(1, regionId);
+	 	query.setParameter(1,codigoProyecto);
+		//return query.getResultList();
+	 	List<ProyectoConProducto> productosList = query.getResultList();
+		return productosList.stream().mapToDouble(p -> p.getCantidad()).sum();
 	}
 
 
