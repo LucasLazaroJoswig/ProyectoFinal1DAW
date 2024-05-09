@@ -9,11 +9,13 @@ import modelo.entidades.Cliente;
 
 public class GestionClientes {
 	private static ClienteDao cdao;
+	private static Scanner scanner;
 	static {
 		cdao=new ClienteDaoImplMy8Jpa();
+		scanner = new Scanner(System.in);
 	}
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+      
 
         int opcion;
 
@@ -49,11 +51,12 @@ public class GestionClientes {
             }
         } while (opcion != 5);
 
-
+        System.out.println("Programa terminado");
+        scanner.close();
     }
 
     private static void altaCliente() {
-    	Scanner scanner = new Scanner(System.in);
+    	 
     	String cif;
     	String nombre;
     	String apellidos;
@@ -61,6 +64,8 @@ public class GestionClientes {
     	double fact_anual;
     	int num_empleados;
     	
+          scanner.nextLine();
+          
         System.out.println("Digame el CIF");
         cif = scanner.nextLine();
 
@@ -85,9 +90,12 @@ public class GestionClientes {
     }
 
     private static void buscarCliente() {
-    	Scanner scanner = new Scanner(System.in);
+    	 
         System.out.println("Dame el CIF del cliente que quieres buscar");
         String cif;
+        
+        scanner.nextLine();
+        
         cif = scanner.nextLine();
         Cliente cl1 = cdao.buscarUno(cif);
         System.out.println(cl1);
@@ -95,12 +103,18 @@ public class GestionClientes {
     }
 
     private static void mostrarTodos() {
-        // Implementar la funcionalidad para mostrar todos los clientes
+    	scanner.nextLine();
+       System.out.println(cdao.buscarTodos());
         
     }
 
     private static void eliminarCliente() {
-        // Implementar la funcionalidad para eliminar un cliente
-        ;
+        
+        System.out.println("Introduzca el CIF del cliente que desees eliminar");
+        String cif;
+        scanner.nextLine();
+        cif = scanner.nextLine();
+        System.out.println(cdao.eliminar(cif));
+        
     }
 }

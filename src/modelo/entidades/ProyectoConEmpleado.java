@@ -95,8 +95,8 @@ public class ProyectoConEmpleado implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ProyectoConEmpleado [numeroOrden=" + numeroOrden + ", fechaIncorporacion=" + fechaIncorporacion
-				+ ", horasAsignadas=" + horasAsignadas + ", empleado=" + empleado + ", proyecto=" + proyecto + "]";
+		return "Proyecto Con Empleado [Número Orden=" + numeroOrden + ", Fecha Incorporación=" + fechaIncorporacion
+				+ ", Horas Asignadas=" + horasAsignadas + ", Empleado=" + empleado + ", Proyecto=" + proyecto + "]";
 	}
 
 	@Override
@@ -114,6 +114,10 @@ public class ProyectoConEmpleado implements Serializable {
 			return false;
 		ProyectoConEmpleado other = (ProyectoConEmpleado) obj;
 		return numeroOrden == other.numeroOrden;
+	}
+	public double costeHorasAsignadas() {
+		double precio_por_hora = empleado.getPerfil().getTasaStandard();
+		return precio_por_hora*horasAsignadas;
 	}
 
 }

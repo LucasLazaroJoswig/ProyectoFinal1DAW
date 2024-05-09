@@ -2,7 +2,6 @@ package modelo.entidades;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 
@@ -24,13 +23,13 @@ public class Perfil implements Serializable {
 	private String nombre;
 
 	@Column(name="tasa_standard")
-	private BigDecimal tasaStandard;
+	private double tasaStandard;
 
 	public Perfil() {
 	}
 	
 
-	public Perfil(int idPerfil, String nombre, BigDecimal tasaStandard) {
+	public Perfil(int idPerfil, String nombre, double tasaStandard) {
 		super();
 		this.idPerfil = idPerfil;
 		this.nombre = nombre;
@@ -54,17 +53,17 @@ public class Perfil implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public BigDecimal getTasaStandard() {
+	public double getTasaStandard() {
 		return this.tasaStandard;
 	}
 
-	public void setTasaStandard(BigDecimal tasaStandard) {
+	public void setTasaStandard(double tasaStandard) {
 		this.tasaStandard = tasaStandard;
 	}
 
 	@Override
 	public String toString() {
-		return "Perfil [idPerfil=" + idPerfil + ", nombre=" + nombre + ", tasaStandard=" + tasaStandard + "]";
+		return "Perfil [idPerfil=" + idPerfil + ", Nombre=" + nombre + ", Tasa Standard=" + tasaStandard + "]";
 	}
 
 	@Override

@@ -1,38 +1,20 @@
 package testing;
 
 
-<<<<<<< HEAD
-import java.util.Arrays;
-import java.util.List;
 
-import modelo.dao.*;
-import modelo.entidades.Proyecto;
-=======
 import java.util.ArrayList;
 import java.util.List;
 
 import modelo.dao.*;
 import modelo.entidades.Cliente;
-import modelo.entidades.Empleado;
 
->>>>>>> 3cedbe1aaa407f1aba97854e8e831f0c6a6eee5a
 
 
 
 
 public class TestPrueba {
 private static ClienteDao cdao;
-<<<<<<< HEAD
 
-public static void main(String[] args) {
-
-
-}
-
-	
-
-		
-=======
 private static EmpleadoDao edao;
 private static ProyectoDao pdao;
 	
@@ -64,7 +46,7 @@ private static ProyectoDao pdao;
 	public static void dias() {
 		pdao.diasATerminoProyectoActivo("FOR2021002");
 	}
->>>>>>> 3cedbe1aaa407f1aba97854e8e831f0c6a6eee5a
+
 		
 
 	}
