@@ -75,6 +75,10 @@ private static double totalPrecio = 0;
         }
 		System.out.println("...........................................");
 		System.out.println("Total Productos : "+ppdao.TotalProductosByProyecto(facturaImp.getProyecto().getIdProyecto()));
+		System.out.println("\n");
+		System.out.println("DETALLE DEL IMPORTE:");
+		System.out.println("Importe venta : "+facturaImp.getProyecto().getVentaPrevisto());
+		System.out.println("Total Facturado : ");
 		
 	}
 }
