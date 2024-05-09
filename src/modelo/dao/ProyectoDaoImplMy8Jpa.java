@@ -21,7 +21,7 @@ public class ProyectoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Proy
 			tx.begin();
 				em.persist(obj);
 			tx.commit();
-			return false;
+			return true;
 		}catch(Exception e) {
 			e.printStackTrace();
 			return false;
@@ -109,7 +109,7 @@ jpql= "select p from Proyecto p where jefe_proyecto = :jefeProyecto and estado =
 
 	@Override
 	public double importesVentaProyectosTerminados() {
-		jpql = "SELECT p from proyectos where estado = 'TERMINADO'";
+		jpql = "SELECT p from Proyecto p where p.estado = 'TERMINADO'";
 		//jpql ="SELECT sum(p.venta_previsto) as suma_venta_previsto from Proyecto p where p.estado ='TERMINADO'";
 		query = em.createQuery(jpql);
 		
@@ -121,13 +121,13 @@ jpql= "select p from Proyecto p where jefe_proyecto = :jefeProyecto and estado =
 
 	@Override
 	public double margenBrutoProyectosTerminados() {
-		jpql = "SELECT p from proyectos where estado = 'TERMINADO'";
+		jpql = "SELECT p from Proyecto p where p.estado = 'TERMINADO'";
 		//jpql ="SELECT sum(p.venta_previsto) as suma_venta_previsto from Proyecto p where p.estado ='TERMINADO'";
 		query = em.createQuery(jpql);
 		
 		@SuppressWarnings("unchecked")
 		List<Proyecto> lista = query.getResultList();
-		return lista.stream().mapToDouble(p -> p.getVentaPrevisto()-p.getCosteReal()).sum();
+		return lista.stream().mapToDouble(p -> p.getVentaPrevisto()-p.getCosteReal().doubleValue()).sum();
 	}
 
 	@Override

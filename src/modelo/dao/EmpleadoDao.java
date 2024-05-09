@@ -1,4 +1,5 @@
 package modelo.dao;
+
 import java.util.List;
 
 import modelo.entidades.Empleado;

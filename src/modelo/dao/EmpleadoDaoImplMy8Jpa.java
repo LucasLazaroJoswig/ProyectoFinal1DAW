@@ -1,5 +1,6 @@
 package modelo.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import modelo.entidades.Cliente;
@@ -72,7 +73,7 @@ public class EmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements Empl
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Empleado> buscarTodos() {
-		jpql = "select e from Empleados e";
+		jpql = "select e from Empleado e";
 		query = em.createQuery(jpql);
 		return query.getResultList();
 	}
@@ -113,7 +114,7 @@ jpql= "select e from Empleado e where e.apellidos like :apellido";
 		query = em.createQuery(jpql);
 		@SuppressWarnings("unchecked")
 		List<Empleado> lista = query.getResultList();
-		return lista.stream().mapToDouble(p -> p.getSalario()).sum();
+		return lista.stream().mapToDouble(p -> p.getSalario().doubleValue()).sum();
 	}
 
 	@Override
@@ -124,7 +125,7 @@ jpql= "select e from Empleado e where id_depar=:idDepar";
 		query.setParameter("idDepar",idDepar);
 		@SuppressWarnings("unchecked")
 		List<Empleado> lista = query.getResultList();
-		return lista.stream().mapToDouble(p -> p.getSalario()).sum();
+		return lista.stream().mapToDouble(p -> p.getSalario().doubleValue()).sum();
 	
 	}
 

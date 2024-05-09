@@ -42,7 +42,7 @@ public class Empleado implements Serializable {
 
 	private String password;
 
-	private double salario;
+	private BigDecimal salario;
 
 	//uni-directional many-to-one association to Departamento
 	@ManyToOne
@@ -63,7 +63,7 @@ public class Empleado implements Serializable {
 	
 	
 	public Empleado(int idEmpl, String apellidos, String email, Date fechaIngreso, Date fechaNacimiento, String genero,
-			String nombre, String password, double salario, Departamento departamento, Perfil perfil,List<Proyecto> proyectos) {
+			String nombre, String password, BigDecimal salario, Departamento departamento, Perfil perfil,List<Proyecto> proyectos) {
 		super();
 		this.idEmpl = idEmpl;
 		this.apellidos = apellidos;
@@ -144,11 +144,11 @@ public class Empleado implements Serializable {
 		this.password = password;
 	}
 
-	public double getSalario() {
+	public BigDecimal getSalario() {
 		return this.salario;
 	}
 
-	public void setSalario(Double salario) {
+	public void setSalario(BigDecimal salario) {
 		this.salario = salario;
 	}
 
@@ -195,7 +195,7 @@ public class Empleado implements Serializable {
 		return "Empleado [idEmpl=" + idEmpl + ", Apellidos=" + apellidos + ", Nombre=" + nombre+
 				", Email=" + email + ", Fecha Ingreso="+ fechaIngreso + ", Fecha Nacimiento=" + fechaNacimiento + 
 				", Género=" + genero +  ", Password=" + password + ", Salario=" + salario + ", Departamento=" + departamento + ", Perfil="
-				+ perfil + ", Proyectos=" + proyectos + "]";
+				+ perfil + "]";
 	}
 
 	@Override
@@ -214,7 +214,7 @@ public class Empleado implements Serializable {
 		Empleado other = (Empleado) obj;
 		return idEmpl == other.idEmpl;
 	}
-	public double salarioBruto() {
+	public BigDecimal salarioBruto() {
 
 		return this.salario;
 	}
@@ -232,8 +232,8 @@ public class Empleado implements Serializable {
 	}
 	public double salarioMensual(int meses) {
 		
-		double salarioBruto = salario;
-		double salarioMensual = salarioBruto / meses;
+		BigDecimal salarioBruto = salario;
+		double salarioMensual = salarioBruto.doubleValue() / meses;
 		return salarioMensual;
 	}
 	public String obtenerEmail() {

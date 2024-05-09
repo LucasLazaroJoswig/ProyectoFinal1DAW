@@ -24,7 +24,7 @@ public class TestClienteDao {
 			//altaCliente();
 			//buscarUno();
 			//Eliminar();
-			//buscarTodos();
+			buscarTodos();
 		
 		
 		}

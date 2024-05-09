@@ -1,5 +1,6 @@
 package test.Daos;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import modelo.dao.EmpleadoDao;
@@ -20,11 +21,11 @@ public class TestEmpleadosDao {
 	public static void main(String[] args) {
 		
 		
-		//altaEmpl();
+		altaEmpl();
 		//buscarUno();
 		//Eliminar();
 		//buscarTodos();
-		empleadoPorDepart();
+		//empleadoPorDepart();
 		//empleadoPorsexo();
 		//empleadoPorApellido();
 		//salarioTotal();
@@ -32,15 +33,15 @@ public class TestEmpleadosDao {
 	
 	}
 	public static void altaEmpl() {
-		System.out.println( edao.alta(new Empleado(121, "Gomez", "agomez@tt.com", new Date(1992-04-11), new Date(1983-11-11),
-													"M", "Andrea", "Andrea", 30000, new Departamento(10, "Gestion Personas", "Madrid") ,
+		System.out.println( edao.alta(new Empleado(0, "Gomez", "agomez@tt.com", new Date(1992-04-11), new Date(1983-11-11),
+													"M", "Andrea", "Andrea", new BigDecimal(30000), new Departamento(10, "Gestion Personas", "Madrid") ,
 													new Perfil(4, "Recusos Humanos", 250.00), null )));
 	
 
 	}
 	
 		public static void buscarUno() {
-			System.out.println(edao.buscarUno(121).getNombre()); 
+			System.out.println(edao.buscarUno(101)); 
 
 		}
 		public static void Eliminar() {
@@ -52,7 +53,7 @@ public class TestEmpleadosDao {
 
 		}
 		public static void empleadoPorDepart() {
-			edao.empleadosByDepartamento(20).forEach(System.out::println);
+			edao.empleadosByDepartamento(10).forEach(System.out::println);
 		}
 		public static void empleadoPorsexo() {
 			edao.empleadosBySexo("M").forEach(System.out::println);;
