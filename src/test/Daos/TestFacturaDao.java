@@ -1,13 +1,12 @@
 package test.Daos;
 
-import java.util.Date;
+import java.util.Date; 
 
 import modelo.dao.FacturaDao;
 import modelo.dao.FacturaDaoImplMy8Jpa;
 import modelo.dao.ProyectoDao;
 import modelo.dao.ProyectoDaoImplMy8Jpa;
 import modelo.entidades.Cliente;
-import modelo.entidades.Country;
 import modelo.entidades.Departamento;
 import modelo.entidades.Empleado;
 import modelo.entidades.Factura;
@@ -40,7 +39,7 @@ public class TestFacturaDao {
 											new Empleado(100, "Diaz", "ediaz@tt.com", new Date(1990-01-12), new Date(1977-02-12), "H", "esteban", "esteban", 90000.00,  new Departamento(10, "Gestion Personas", "Madrid"), null, null) );
 		System.out.println(pdao.alta(proyectof));
 		
-		System.out.println( fdao.altaFactura(new Factura("E1023781", "Proyectos", new Date(2023-05-11),  )));
+		System.out.println( fdao.altaFactura(new Factura("E1023781", "Proyectos", new Date(2023-05-11), proyectof )));
 	
 
 	}
