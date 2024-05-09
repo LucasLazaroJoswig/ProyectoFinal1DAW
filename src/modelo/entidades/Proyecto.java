@@ -1,6 +1,8 @@
 package modelo.entidades;
 
-import java.io.Serializable; 
+import java.io.Serializable;
+import java.math.BigDecimal;
+
 import javax.persistence.*;
 
 import java.util.Date;
@@ -22,7 +24,7 @@ public class Proyecto implements Serializable {
 	private String idProyecto;
 
 	@Column(name="coste_real")
-	private double costeReal;
+	private BigDecimal costeReal;
 
 	@Column(name="costes_previsto")
 	private double costesPrevisto;
@@ -61,7 +63,7 @@ public class Proyecto implements Serializable {
 	}
 	
 
-	public Proyecto(String idProyecto, double costeReal, double costesPrevisto, String descripcion, String estado,
+	public Proyecto(String idProyecto, BigDecimal costeReal, double costesPrevisto, String descripcion, String estado,
 			Date fechaFinPrevisto, Date fechaFinReal, Date fechaInicio, double ventaPrevisto, Cliente cliente,
 			Empleado empleado) {
 		super();
@@ -87,11 +89,11 @@ public class Proyecto implements Serializable {
 		this.idProyecto = idProyecto;
 	}
 
-	public double getCosteReal() {
+	public BigDecimal getCosteReal() {
 		return this.costeReal;
 	}
 
-	public void setCosteReal(double costeReal) {
+	public void setCosteReal(BigDecimal costeReal) {
 		this.costeReal = costeReal;
 	}
 
@@ -175,12 +177,12 @@ public   double MargenPrevisto () {
 
 public double MargenReal() {
 	
-	return ventaPrevisto - costeReal;
+	return ventaPrevisto - costeReal.doubleValue();
 }
 
 public double DiferenciaGastos() {
 
-	return costeReal - costesPrevisto;
+	return costeReal.doubleValue() - costesPrevisto;
 }
 
 public int diferenciaFinPrevistoReal() {
