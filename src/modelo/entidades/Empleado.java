@@ -2,6 +2,7 @@ package modelo.entidades;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -62,8 +63,7 @@ public class Empleado implements Serializable {
 	
 	
 	public Empleado(int idEmpl, String apellidos, String email, Date fechaIngreso, Date fechaNacimiento, String genero,
-			String nombre, String password, double salario, Departamento departamento, Perfil perfil,
-			List<Proyecto> proyectos) {
+			String nombre, String password, double salario, Departamento departamento, Perfil perfil,List<Proyecto> proyectos) {
 		super();
 		this.idEmpl = idEmpl;
 		this.apellidos = apellidos;

@@ -72,12 +72,20 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa impl
 
 	@Override
 	public List<ProyectoConEmpleado> empleadosByProyecto(String codigoProyecto) {
-jpql= "select ep from ProyectoConEmpleado ep where id_proyecto = :idProyecto";
-		
+//jpql= "SELECT * FROM empleados e join proyecto_con_empleados ep on e.id_empl = ep.id_empl join proyectos p on ep.id_proyecto = p."+codigoProyecto+";";
+		//jpql = "select ep.empleado from ProyectoConEmpleado ep where ep.proyecto.idProyecto = ?1";
+		jpql = "select ep from ProyectoConEmpleado ep where ep.proyecto.idProyecto = ?1";
 		query = em.createQuery(jpql);
 	//	query.setParameter(1, regionId);
-	 	query.setParameter("idProyecto",codigoProyecto);
-		return query.getResultList();
+	 	query.setParameter(1,codigoProyecto);
+		//return query.getResultList();
+	 	List<ProyectoConEmpleado> empleadosList = query.getResultList();
+	 	return empleadosList;
+	 	/*for (ProyectoConEmpleado empleados:empleadosList) {
+	 	      return empleados.
+	 	      
+	 	    }*/
+				
 	}
 
 	@Override
@@ -105,7 +113,7 @@ jpql= "select ep from ProyectoConEmpleado ep where id_proyecto = :idProyecto";
 
 	@Override
 	public double costeActualDeProyecto(String codigoProyecto) {
-jpql= "select ep from ProyectoConEmpleado ep where id_proyecto = :idProyecto";
+jpql= "select ep from ProyectoConEmpleado ep where ep.proyecto.idProyecto = :idProyecto";
 		
 		query = em.createQuery(jpql);
 		query.setParameter("idProyecto",codigoProyecto);

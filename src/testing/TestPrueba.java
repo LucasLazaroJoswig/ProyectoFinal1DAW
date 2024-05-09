@@ -27,8 +27,8 @@ private static ProyectoDao pdao;
 	public static void main(String[] args) {
 
 			/*uno();*/
-			//todos();
-			dias();
+			todos();
+			//dias();
 
 
 
@@ -49,6 +49,6 @@ private static ProyectoDao pdao;
 
 		
 
-	}
+}
 
 
