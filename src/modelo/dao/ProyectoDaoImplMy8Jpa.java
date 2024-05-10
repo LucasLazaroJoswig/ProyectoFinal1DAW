@@ -109,11 +109,8 @@ jpql= "select p from Proyecto p where jefe_proyecto = :jefeProyecto and estado =
 
 	@Override
 	public double importesVentaProyectosTerminados() {
-<<<<<<< HEAD
 		jpql = "SELECT p from Proyecto p where p.estado = 'TERMINADO'";
-=======
-		jpql = "SELECT p from Proyecto where estado = 'TERMINADO'";
->>>>>>> 8f023bd444203360bbc5ab9165216a584760ccfb
+
 		//jpql ="SELECT sum(p.venta_previsto) as suma_venta_previsto from Proyecto p where p.estado ='TERMINADO'";
 		query = em.createQuery(jpql);
 		
