@@ -103,9 +103,10 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa impl
 
 	@Override
 	public int horasAsignadasAProyecto(String codigoProyecto) {
-		jpql= "select ep from ProyectoConEmpleado ep";
+		jpql= "select ep from ProyectoConEmpleado ep where ep.proyecto.idProyecto = :idProyecto";
 		
 		query = em.createQuery(jpql);
+		query.setParameter("idProyecto",codigoProyecto);
 		@SuppressWarnings("unchecked")
 		List<ProyectoConEmpleado> lista = query.getResultList();
 		return lista.stream().mapToInt(p -> p.getHorasAsignadas()).sum();
@@ -120,13 +121,21 @@ jpql= "select ep from ProyectoConEmpleado ep where ep.proyecto.idProyecto = :idP
 		@SuppressWarnings("unchecked")
 
 		List<ProyectoConEmpleado> lista = query.getResultList();
-		return lista.stream().mapToDouble(p -> p.costeHorasAsignadas()*p.costeHorasAsignadas()).sum();
+		return lista.stream().mapToDouble(p -> p.costeHorasAsignadas()).sum();
 	}
 
 	@Override
 	public double margenActualProyecto(String codigoProyecto) {
-		ProyectoConEmpleado proyecto = em.find(ProyectoConEmpleado.class, codigoProyecto);
-		return proyecto.getProyecto().getVentaPrevisto()-costeActualDeProyecto(codigoProyecto);
+		jpql= "select ep from ProyectoConEmpleado ep where ep.proyecto.idProyecto = :idProyecto";
+		query = em.createQuery(jpql);
+		query.setParameter("idProyecto",codigoProyecto);
+		@SuppressWarnings("unchecked")
+
+		List<ProyectoConEmpleado> lista = query.getResultList();
+		double costeActual = lista.stream().mapToDouble(p -> p.costeHorasAsignadas()).sum();
+		return lista.stream().mapToDouble(p -> p.getProyecto().getVentaPrevisto()-costeActual).sum();
+		
 	}
+	
 
 }
