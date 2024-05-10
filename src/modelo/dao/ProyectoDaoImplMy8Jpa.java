@@ -133,9 +133,9 @@ jpql= "select p from Proyecto p where p.empleado.idEmpl = :jefeProyecto and p.es
 	@Override
 	public int diasATerminoProyectoActivo(String codigoProyecto) {
 		Proyecto p = em.find(Proyecto.class, codigoProyecto);
-		Date fecha_hoy = new Date(System.currentTimeMillis());
+		Date fecha_hoy = new Date();
 		Date fecha_prevista = p.getFechaFinPrevisto();
-		int dias = (int)((fecha_hoy.getTime()-fecha_prevista.getTime())/(1000*60*60*24));
+		int dias = (int)((fecha_hoy.getTime()-fecha_prevista.getTime())/(86400000));
 		return dias;
 
 		

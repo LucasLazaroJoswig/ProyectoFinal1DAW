@@ -20,9 +20,9 @@ public class TestProyectoConProducto {
 		prodDao = new ProductoDaoImplMy8Jpa();
 	}
 public static void main(String[] args) {
-	System.out.println(ppdao.alta(new ProyectoConProducto(1, 50, 100, prodDao.buscarUno(1), proyDao.buscarUno("FOR2020001"))));
+	//System.out.println(ppdao.alta(new ProyectoConProducto(1, 50, 100, prodDao.buscarUno(1), proyDao.buscarUno("FOR2020001"))));
 	
-	ProyectoConProducto proy_prod=ppdao.buscarUno(1);
+	ProyectoConProducto proy_prod=(new ProyectoConProducto(1, 50, 100, prodDao.buscarUno(1), proyDao.buscarUno("FOR2020001")));
 	System.out.println(proy_prod.costeTotalProductos());
 }
 }
