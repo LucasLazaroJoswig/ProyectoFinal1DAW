@@ -29,7 +29,12 @@ public class TestProyectoConProductoDao {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		alta();
+		//alta();
+		//eliminar();
+		//buscarUno();
+		//buscarTodos();
+		//asignarProductosAProyecto();
+		TotalProductosByProyecto();
 		}
 	
 	public static void alta() {
@@ -37,18 +42,28 @@ public class TestProyectoConProductoDao {
 				,new Date(01-05-2024),10000, new Cliente("B22222222","Pepe","Carrasco",1000000,"Burgos",125 ),new Empleado(121, "Nilla", "pmilla@gmail.com", new Date(2000-11-21), new Date(1999-11-21), "H", "pere0", "pere", 10000, null, null, null));
 		
 		System.out.println(pdao.alta(proyecto1));*/
-		ProyectoConProducto proy_prod=new ProyectoConProducto(1, 100, 200, ppdao.buscarUno(1) ,pdao.buscarUno("FOR2021001"));
+		ProyectoConProducto proy_prod=new ProyectoConProducto(0, 100, 200, ppdao.buscarUno(1) ,pdao.buscarUno("FOR2021001"));
 		System.out.println(pcpdao.alta(proy_prod));
 		
 		}
 	public static void eliminar() {
-		
+		System.out.println(pcpdao.eliminar(1));
 		}
-	public static void modificar() {
-	
-		}
+
 	public static void buscarUno() {
-	
+		System.out.println(pcpdao.buscarUno(2));
+	}
+	public static void buscarTodos() {
+		System.out.println(pcpdao.buscarTodos());
+	}
+	public static void asignarProductosAProyecto() {
+		System.out.println(pcpdao.productosByProyecto("FOR2021001"));
+	}
+	/*public static void asignarProductosAProyecto() {
+		
+	}*/
+	public static void TotalProductosByProyecto() {
+		System.out.println(pcpdao.TotalProductosByProyecto("FOR2021001"));
 	}
 
 }
