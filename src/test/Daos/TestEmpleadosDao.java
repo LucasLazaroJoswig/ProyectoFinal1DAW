@@ -21,12 +21,12 @@ public class TestEmpleadosDao {
 	public static void main(String[] args) {
 		
 		
-		altaEmpl();
+		//altaEmpl();
 		//buscarUno();
 		//Eliminar();
 		//buscarTodos();
 		//empleadoPorDepart();
-		//empleadoPorsexo();
+		empleadoPorsexo();
 		//empleadoPorApellido();
 		//salarioTotal();
 		//salarioTotalDepart();

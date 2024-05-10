@@ -63,7 +63,7 @@ public class TestProyectoDao {
 			pdao.buscarTodos().forEach(System.out::println);
 
 		}
-		public static void proyectosByEstado() {
+		public static void proyectosByEstado() { 
 			pdao.proyectosByEstado("TERMINADO").forEach(System.out::println);
 		}
 		public static void proyectosByCliente() {

@@ -1,6 +1,6 @@
 package modelo.dao;
 
-import java.math.BigDecimal;
+
 import java.util.Date;
 import java.util.List;
 
@@ -98,22 +98,18 @@ jpql= "select p from Proyecto p where estado = :estado";
 
 	@Override
 	public List<Proyecto> proyectosByJefeProyectoAndByEstado(int jefeProyecto, String estado) {
-jpql= "select p from Proyecto p where jefe_proyecto = :jefeProyecto and estado = :estado";
+jpql= "select p from Proyecto p where p.empleado.idEmpl = :jefeProyecto and p.estado = :estado";
 		
 		query = em.createQuery(jpql);
 	//	query.setParameter(1, regionId);
 	 	query.setParameter("estado", estado);
-	 	query.setParameter("jefe_proyecto", jefeProyecto);
+	 	query.setParameter("jefeProyecto", jefeProyecto);
 		return query.getResultList();
 	}
 
 	@Override
 	public double importesVentaProyectosTerminados() {
 		jpql = "SELECT p from Proyecto p where p.estado = 'TERMINADO'";
-<<<<<<< HEAD
-=======
-
->>>>>>> f9d74c38ec6c12eb1da834e11ba632ffeb1dada8
 		//jpql ="SELECT sum(p.venta_previsto) as suma_venta_previsto from Proyecto p where p.estado ='TERMINADO'";
 		query = em.createQuery(jpql);
 		
@@ -139,8 +135,9 @@ jpql= "select p from Proyecto p where jefe_proyecto = :jefeProyecto and estado =
 		Proyecto p = em.find(Proyecto.class, codigoProyecto);
 		Date fecha_hoy = new Date(System.currentTimeMillis());
 		Date fecha_prevista = p.getFechaFinPrevisto();
-		int dias = (int)((fecha_hoy.getTime()-fecha_prevista.getTime()));
+		int dias = (int)((fecha_hoy.getTime()-fecha_prevista.getTime())/(1000*60*60*24));
 		return dias;
+
 		
 		
 	}
