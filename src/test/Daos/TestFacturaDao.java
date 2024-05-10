@@ -54,10 +54,8 @@ public class TestFacturaDao {
 		
 		
 		
-<<<<<<< HEAD
-=======
-		System.out.println( fdao.altaFactura(new Factura("E1023781", "Proyectos", new Date(2023-05-11), proyectof )));
->>>>>>> 8f023bd444203360bbc5ab9165216a584760ccfb
+
+
 	
 
 	}
