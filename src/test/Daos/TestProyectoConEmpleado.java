@@ -1,5 +1,6 @@
 package test.Daos;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -36,10 +37,10 @@ public class TestProyectoConEmpleado {
 		
 		
 		//empleadosByProyecto();
-		//asignarEmpleadosAProyecto();
+		asignarEmpleadosAProyecto();
 		
 		//costeActualDeProyecto();
-		margenActualProyecto();
+		//margenActualProyecto();
 	}
 
 	public static void altaProyEmpl() {
@@ -69,11 +70,14 @@ public class TestProyectoConEmpleado {
 		pedao.empleadosByProyecto("FOR2020001").forEach(System.out::println);
 
 	}
-	/*public static void asignarEmpleadosAProyecto() {
-
-		  pedao.asignarEmpleadosAProyecto(List<ProyectoConEmpleado> empleados);
+	public static void asignarEmpleadosAProyecto() {
+		List<ProyectoConEmpleado> empleados = new ArrayList<ProyectoConEmpleado>();
+		empleados.add(new ProyectoConEmpleado(0, new Date(2021 - 11 - 31), 50, edao.buscarUno(100),pdao.buscarUno("FOR2020001")));
+		empleados.add(new ProyectoConEmpleado(0, new Date(2021 - 11 - 23), 60, edao.buscarUno(114),pdao.buscarUno("FOR2020001")));
+		
+		System.out.println(pedao.asignarEmpleadosAProyecto(empleados));
 	}
-	*/
+	
 	
 	public static void horasAsignadasAProyecto() {
 

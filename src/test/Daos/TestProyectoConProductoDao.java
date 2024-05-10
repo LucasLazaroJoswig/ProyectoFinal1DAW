@@ -1,6 +1,8 @@
 package test.Daos;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import modelo.dao.ProductoDao;
 import modelo.dao.ProductoDaoImplMy8Jpa;
@@ -11,6 +13,7 @@ import modelo.dao.ProyectoDaoImplMy8Jpa;
 import modelo.entidades.Cliente;
 import modelo.entidades.Empleado;
 import modelo.entidades.Proyecto;
+import modelo.entidades.ProyectoConEmpleado;
 import modelo.entidades.ProyectoConProducto;
  
 
@@ -33,8 +36,9 @@ public class TestProyectoConProductoDao {
 		//eliminar();
 		//buscarUno();
 		//buscarTodos();
-		//asignarProductosAProyecto();
-		TotalProductosByProyecto();
+		//productosByProyecto();
+		asignarProductosAProyecto();
+		//TotalProductosByProyecto();
 		}
 	
 	public static void alta() {
@@ -56,12 +60,16 @@ public class TestProyectoConProductoDao {
 	public static void buscarTodos() {
 		System.out.println(pcpdao.buscarTodos());
 	}
-	public static void asignarProductosAProyecto() {
+	public static void productosByProyecto() {
 		System.out.println(pcpdao.productosByProyecto("FOR2021001"));
 	}
-	/*public static void asignarProductosAProyecto() {
+	public static void asignarProductosAProyecto() {
+		List<ProyectoConProducto> productos = new ArrayList<ProyectoConProducto>();
+		productos.add(new ProyectoConProducto(0, 100, 200, ppdao.buscarUno(1) ,pdao.buscarUno("FOR2021001")));
+		productos.add(new ProyectoConProducto(0, 50, 200, ppdao.buscarUno(1) ,pdao.buscarUno("FOR2020001")));
 		
-	}*/
+		System.out.println(pcpdao.asignarProductosAProyecto(productos));
+	}
 	public static void TotalProductosByProyecto() {
 		System.out.println(pcpdao.TotalProductosByProyecto("FOR2021001"));
 	}

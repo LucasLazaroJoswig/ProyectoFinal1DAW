@@ -8,6 +8,6 @@ import modelo.entidades.ProyectoConProducto;
 public interface ProyectoConProductoDao extends IntGenericoCrud<Integer, ProyectoConProducto>{
 
 	List<ProyectoConProducto> productosByProyecto(String codigoProyecto);
-	int asignarProductosAProyecto(List<ProyectoConProducto> empleados);
+	String asignarProductosAProyecto(List<ProyectoConProducto> empleados);
 	double TotalProductosByProyecto(String codigoProyecto);
 	}

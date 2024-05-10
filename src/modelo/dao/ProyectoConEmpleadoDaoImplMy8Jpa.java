@@ -5,6 +5,7 @@ import java.util.List;
 import modelo.entidades.Cliente;
 import modelo.entidades.Empleado;
 import modelo.entidades.Factura;
+import modelo.entidades.Proyecto;
 import modelo.entidades.ProyectoConEmpleado;
 
 public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa implements EmpleadoEnProyectoDao{
@@ -89,16 +90,21 @@ public class ProyectoConEmpleadoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa impl
 	}
 
 	@Override
-	public int asignarEmpleadosAProyecto(List<ProyectoConEmpleado> empleados) {
-		try {
-			tx.begin();
-				em.persist(empleados);
-			tx.commit();
-			return 1;
-		}catch(Exception e) {
-			e.printStackTrace();
-			return 0;
-		}
+	public String asignarEmpleadosAProyecto(List<ProyectoConEmpleado> empleados) {
+		String posible="";
+		tx.begin();
+		for (ProyectoConEmpleado empleado : empleados) {
+            	try {
+        			
+        				em.persist(empleado);
+        			
+        			posible+=" correcto";
+        		}catch(Exception e) {
+        			e.printStackTrace();
+        			posible+=" incorrecto";
+        		}
+			}tx.commit();
+		return posible;
 	}
 
 	@Override

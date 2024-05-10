@@ -81,16 +81,21 @@ public class ProyectoConProductoDaoImplMy8Jpa extends AbstractDaoImplmy8Jpa impl
 	}
 
 	@Override
-	public int asignarProductosAProyecto(List<ProyectoConProducto> empleados) {
-		try {
-			tx.begin();
-				em.persist(empleados);
-			tx.commit();
-			return 1;
-		}catch(Exception e) {
-			e.printStackTrace();
-			return 0;
-		}
+	public String asignarProductosAProyecto(List<ProyectoConProducto> productos) {
+		String posible="";
+		tx.begin();
+		for (ProyectoConProducto productosProy : productos) {
+            	try {
+        			
+        				em.persist(productosProy);
+        			
+        			posible+=" correcto";
+        		}catch(Exception e) {
+        			e.printStackTrace();
+        			posible+=" incorrecto";
+        		}
+			}tx.commit();
+		return posible;
 	}
 	public double TotalProductosByProyecto(String codigoProyecto) {
 		jpql = "select ep from ProyectoConProducto ep where ep.proyecto.idProyecto = ?1";
