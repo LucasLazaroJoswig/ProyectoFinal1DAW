@@ -98,12 +98,12 @@ jpql= "select p from Proyecto p where estado = :estado";
 
 	@Override
 	public List<Proyecto> proyectosByJefeProyectoAndByEstado(int jefeProyecto, String estado) {
-jpql= "select p from Proyecto p where jefe_proyecto = :jefeProyecto and estado = :estado";
+jpql= "select p from Proyecto p where p.empleado.idEmpl = :jefeProyecto and p.estado = :estado";
 		
 		query = em.createQuery(jpql);
 	//	query.setParameter(1, regionId);
 	 	query.setParameter("estado", estado);
-	 	query.setParameter("jefe_proyecto", jefeProyecto);
+	 	query.setParameter("jefeProyecto", jefeProyecto);
 		return query.getResultList();
 	}
 
@@ -134,9 +134,9 @@ jpql= "select p from Proyecto p where jefe_proyecto = :jefeProyecto and estado =
 	@Override
 	public int diasATerminoProyectoActivo(String codigoProyecto) {
 		Proyecto p = em.find(Proyecto.class, codigoProyecto);
-		Date fecha_hoy = new Date(System.currentTimeMillis());
+		Date fecha_hoy = new Date();
 		Date fecha_prevista = p.getFechaFinPrevisto();
-		int dias = (int)((fecha_hoy.getTime()-fecha_prevista.getTime()));
+		int dias = (int)((fecha_hoy.getTime()-fecha_prevista.getTime())/(86400000));
 		return dias;
 		
 		

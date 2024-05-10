@@ -188,8 +188,7 @@ public double DiferenciaGastos() {
 
 public int diferenciaFinPrevistoReal() {
 	
-	return   (int) (fechaFinPrevisto.getTime() - fechaFinReal.getTime());
-
+	return  (int)((fechaFinPrevisto.getTime()-fechaFinReal.getTime())/(86400000));
 }
 
 	@Override
