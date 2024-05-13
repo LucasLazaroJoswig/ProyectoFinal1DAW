@@ -42,7 +42,7 @@ public class GestionEmpleados {
             System.out.println("2. Buscar un Empleado");
             System.out.println("3. Mostrar Todos");
             System.out.println("4. Eliminar un Empleado");
-
+            System.out.println("Salir del programa");
             System.out.print("Seleccione una opción: ");
             System.out.println("\n");
             opcion = scanner.nextInt();
@@ -106,6 +106,7 @@ public class GestionEmpleados {
         
         System.out.println("Digame el salario");
         salario=scanner.nextBigDecimal();
+        scanner.nextLine();
         
         System.out.println("Digame su fecha de nacimiento (yyyy-MM-dd)");
         fecha_nacimiento=scanner.nextLine();
@@ -113,7 +114,7 @@ public class GestionEmpleados {
         
         System.out.println("Elija el perfil del empleado");
         int opcion;
-		do {
+		
             System.out.println("\nMENÚ");
             System.out.println("1. Control de Gestion");
             System.out.println("2. Jefe de Proyecto");
@@ -139,14 +140,12 @@ public class GestionEmpleados {
                 default:
                 	System.out.println("Porfavor elija una opción entre el 1 y el 5");
             }
-        } while (opcion != 5);
+        
 
-        System.out.println("Programa terminado");
-        scanner.close();
         	
         System.out.println("Elija el departamento del empleado");
         int opcion1;
-		do {
+		
             System.out.println("\nMENÚ");
             System.out.println("1. Gestion Personas");
             System.out.println("2. Software");
@@ -171,14 +170,13 @@ public class GestionEmpleados {
                     break;
                 default:
                 	System.out.println("Porfavor elija una opción entre el 1 y el 5");
-            }
-        } while (opcion != 5);
 
-        System.out.println("Programa terminado");
-        scanner.close();
+            }
+
         
         Empleado empleado = new Empleado(0, apellidos, email, fecha_ingreso, fecha, genero, nombre, password, salario, departamento, perfil, null);
         System.out.println(edao.alta(empleado));
+    
     }
 
     private static void buscarEmpleado() {
@@ -196,7 +194,7 @@ public class GestionEmpleados {
 
     private static void mostrarTodos() {
 
-       System.out.println(edao.buscarTodos());
+       edao.buscarTodos().forEach(System.out::println);
         
     }
 

@@ -28,6 +28,7 @@ public class GestionClientes {
             System.out.println("5. Salir");
 
             System.out.print("Seleccione una opción: ");
+            System.out.println("");
             opcion = scanner.nextInt();
 
             switch (opcion) {
@@ -104,7 +105,7 @@ public class GestionClientes {
 
     private static void mostrarTodos() {
     	scanner.nextLine();
-       System.out.println(cdao.buscarTodos());
+       cdao.buscarTodos().forEach(System.out::println);
         
     }
 
