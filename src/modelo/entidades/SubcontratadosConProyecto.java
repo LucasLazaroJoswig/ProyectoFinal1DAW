@@ -3,6 +3,7 @@ package modelo.entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 
 /**
@@ -26,8 +27,10 @@ public class SubcontratadosConProyecto implements Serializable {
 	@Column(name="horas_asignadas")
 	private int horasAsignadas;
 
-	@Column(name="id_proyecto")
-	private String idProyecto;
+	//uni-directional many-to-one association to Proyecto
+		@ManyToOne
+		@JoinColumn(name="id_proyecto")
+		private Proyecto proyecto;
 
 	//bi-directional many-to-one association to Subcontratado
 	@ManyToOne
@@ -61,12 +64,12 @@ public class SubcontratadosConProyecto implements Serializable {
 		this.horasAsignadas = horasAsignadas;
 	}
 
-	public String getIdProyecto() {
-		return this.idProyecto;
+	public Proyecto getIdProyecto() {
+		return this.proyecto;
 	}
 
-	public void setIdProyecto(String idProyecto) {
-		this.idProyecto = idProyecto;
+	public void setIdProyecto(Proyecto idProyecto) {
+		this.proyecto = proyecto;
 	}
 
 	public Subcontratado getSubcontratado() {
@@ -77,4 +80,41 @@ public class SubcontratadosConProyecto implements Serializable {
 		this.subcontratado = subcontratado;
 	}
 
+	public SubcontratadosConProyecto(int numeroOrden, Date fechaIncorporacion, int horasAsignadas, Proyecto proyecto,
+			Subcontratado subcontratado) {
+		super();
+		this.numeroOrden = numeroOrden;
+		this.fechaIncorporacion = fechaIncorporacion;
+		this.horasAsignadas = horasAsignadas;
+		this.proyecto = proyecto;
+		this.subcontratado = subcontratado;
+	}
+
+	@Override
+	public String toString() {
+		return "SubcontratadosConProyecto [numeroOrden=" + numeroOrden + ", fechaIncorporacion=" + fechaIncorporacion
+				+ ", horasAsignadas=" + horasAsignadas + ", proyecto=" + proyecto + ", subcontratado="
+				+ subcontratado + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(numeroOrden);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SubcontratadosConProyecto other = (SubcontratadosConProyecto) obj;
+		return numeroOrden == other.numeroOrden;
+	}
+	public double costeHorasAsignadas() {
+		double precio_por_hora =subcontratado.getIdPerfil().getTasaStandard();
+		return precio_por_hora*horasAsignadas;
+	}
 }

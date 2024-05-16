@@ -59,6 +59,7 @@ public class Proyecto implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="jefe_proyecto")
 	private Empleado empleado;
+	
 
 	public Proyecto() {
 	}

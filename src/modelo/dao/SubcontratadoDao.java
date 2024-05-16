@@ -1,5 +1,10 @@
 package modelo.dao;
 
-public interface SubcontratadoDao {
+import java.util.List;
 
+
+import modelo.entidades.Subcontratado;
+
+public interface SubcontratadoDao extends IntGenericoCrud<String, Subcontratado> {
+	List<Subcontratado> subcontratadoByApellido(String subcadena);
 }

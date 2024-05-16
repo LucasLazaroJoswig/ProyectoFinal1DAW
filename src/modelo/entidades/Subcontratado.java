@@ -3,6 +3,7 @@ package modelo.entidades;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -21,15 +22,14 @@ public class Subcontratado implements Serializable {
 
 	private String apellidos;
 
-	@Column(name="id_perfil")
-	private int idPerfil;
+	//uni-directional many-to-one association to Perfil
+		@ManyToOne
+		@JoinColumn(name="id_perfil")
+		private Perfil perfil;
 
 	private String nombre;
 
-	//bi-directional many-to-one association to SubcontratadosConProyecto
-	@OneToMany(mappedBy="subcontratado")
-	private List<SubcontratadosConProyecto> subcontratadosConProyectos;
-
+	
 	public Subcontratado() {
 	}
 
@@ -49,12 +49,12 @@ public class Subcontratado implements Serializable {
 		this.apellidos = apellidos;
 	}
 
-	public int getIdPerfil() {
-		return this.idPerfil;
+	public Perfil getIdPerfil() {
+		return this.perfil;
 	}
 
-	public void setIdPerfil(int idPerfil) {
-		this.idPerfil = idPerfil;
+	public void setIdPerfil(Perfil perfil) {
+		this.perfil = perfil;
 	}
 
 	public String getNombre() {
@@ -64,27 +64,44 @@ public class Subcontratado implements Serializable {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-
-	public List<SubcontratadosConProyecto> getSubcontratadosConProyectos() {
-		return this.subcontratadosConProyectos;
+	public String nombreCompleto() {
+		String nombreCompleto=nombre +" "+ apellidos;
+		return nombreCompleto;
 	}
 
-	public void setSubcontratadosConProyectos(List<SubcontratadosConProyecto> subcontratadosConProyectos) {
-		this.subcontratadosConProyectos = subcontratadosConProyectos;
+	public Subcontratado(String idSub, String apellidos, Perfil perfil, String nombre) {
+		super();
+		this.idSub = idSub;
+		this.apellidos = apellidos;
+		this.perfil = perfil;
+		this.nombre = nombre;
 	}
 
-	public SubcontratadosConProyecto addSubcontratadosConProyecto(SubcontratadosConProyecto subcontratadosConProyecto) {
-		getSubcontratadosConProyectos().add(subcontratadosConProyecto);
-		subcontratadosConProyecto.setSubcontratado(this);
-
-		return subcontratadosConProyecto;
+	@Override
+	public String toString() {
+		return "Subcontratado [idSub=" + idSub + ", apellidos=" + apellidos + ", idPerfil=" + perfil + ", nombre="
+				+ nombre + "]";
 	}
 
-	public SubcontratadosConProyecto removeSubcontratadosConProyecto(SubcontratadosConProyecto subcontratadosConProyecto) {
-		getSubcontratadosConProyectos().remove(subcontratadosConProyecto);
-		subcontratadosConProyecto.setSubcontratado(null);
-
-		return subcontratadosConProyecto;
+	@Override
+	public int hashCode() {
+		return Objects.hash(idSub);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Subcontratado other = (Subcontratado) obj;
+		return Objects.equals(idSub, other.idSub);
+	}
+
+	
+
+	
 
 }
