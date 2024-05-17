@@ -120,6 +120,7 @@ foreign key(id_familia) references familias(id_familia)
 insert into productos (descripcion, precio, fecha_creacion,stock, id_familia)
 values('Impresora laser brother 550-DS', 125,'2018-12-05',50,2);
 
+Insert into productos values (0,"Ordenador super chulo",1000, 100, "2018-01-01",2);
 create table proyecto_con_productos
 ( num_orden int not null primary key auto_increment,
 id_proyecto varchar(10) not null,
@@ -129,7 +130,8 @@ cantidad int,
 foreign key(id_proyecto) references proyectos(id_proyecto),
 foreign key(id_producto) references productos(id_producto)
 );
-
+Insert into proyecto_con_productos Values (0,"FOR2020001",2,110,10);
+Insert into proyecto_con_productos Values (0,"FOR2020001",1,500,15);
 
 create table facturas
 ( id_factura varchar(15) not null primary key,
@@ -149,7 +151,10 @@ id_perfil int not null,
 foreign key(id_perfil) references perfiles (id_perfil)
 
 );
-
+insert into subcontratados values ("F01231","Lucas","Lazaro",2);
+insert into subcontratados values ("F01232","Domenico","Alberico",2);
+insert into subcontratados values ("F01233","Edu","Gomez",2);
+insert into subcontratados values ("F01234","Pablo","Hornero",2);
 
 create table Subcontratados_con_Proyecto
 ( numero_orden int auto_increment primary key,
@@ -160,7 +165,11 @@ fecha_incorporacion date,
 foreign key(id_proyecto) references proyectos(id_proyecto),
 foreign key(id_sub) references SubContratados(id_sub)
 );
- INSERT INTO `SubContratados_con_Proyectos`VALUES ('8856','FOR2021001','A22222222','80','2021-10-11');
+Insert into subcontratados_con_proyecto VALUES (0,"FOR2020001", "F01231",100, "2020-06-01");
+Insert into subcontratados_con_proyecto VALUES (0,"FOR2020001", "F01232",70, "2020-06-01");
+Insert into subcontratados_con_proyecto VALUES (0,"FOR2020001", "F01233",40, "2020-06-01");
+Insert into subcontratados_con_proyecto VALUES (0,"FOR2020001", "F01234",20, "2020-06-01");
+ 
 create user 'uproyectos_IFP_2024' identified by 'uproyectos';
 grant all privileges on clientes_proyectos_empleados_IFP_2024.* to  'uproyectos_IFP_2024';
  
